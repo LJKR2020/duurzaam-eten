@@ -14,35 +14,39 @@ function App() {
         <Router>
             <div>
                 <nav>
+                    <img src="/" alt="logo"/>
                     <ul>
                         <li><NavLink exact to="/">Home</NavLink></li>
-                        <li><NavLink to="/inloggen">Inloggen</NavLink></li>
-                        <li><NavLink to="/registreren">Registreren</NavLink></li>
                         <li><NavLink to="/recepten">Recepten</NavLink></li>
-                        <li><NavLink to="/profiel">Persoonlijke pagina</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
+                        <li><NavLink to="/registreren">Registreren</NavLink></li>
+                        <li><NavLink to="/inloggen">Inloggen</NavLink></li>
+                        {/*<li><NavLink to="/profiel">Persoonlijke pagina</NavLink></li>*/}
                     </ul>
                 </nav>
-                <Switch>
-                    <Route exact path="/">
-                        <Homepage />
-                    </Route>
-                    <Route path="/inloggen">
-                        <SignIn />
-                    </Route>
-                    <Route path="/registreren">
-                        <SignUp />
-                    </Route>
-                    <Route path="/recepten">
-                        <RecipeSearch />
-                    </Route>
-                    <Route path="/profiel">
-                        <Profile />
-                    </Route>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                </Switch>
+                <section className="mid-screen">
+                    <Switch>
+                        <Route exact path="/">
+                            <Homepage />
+                        </Route>
+                        <Route path="/inloggen">
+                            <SignIn />
+                        </Route>
+                        <Route path="/registreren">
+                            <SignUp />
+                        </Route>
+                        <Route path="/recepten">
+                            <RecipeSearch />
+                        </Route>
+                        <Route path="/profiel">
+                            <Profile />
+                        </Route>
+                        <Route path="/contact">
+                            <Contact />
+                        </Route>
+                    </Switch>
+                </section>
+
             </div>
         </Router>
     );
