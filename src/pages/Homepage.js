@@ -6,7 +6,7 @@ import fridge from './../assets/pexels-polina-tankilevitch-4443433.jpg'
 
 function Homepage() {
     return (
-        <main>
+        <>
             <article>
                 <Tile
                     title="Duurzaam eten"
@@ -18,7 +18,7 @@ function Homepage() {
                     image={karolina}
                     text="kaas raspen boven een kom spaghetti"
                 />
-                
+
             </article>
             <article>
                 <Tile
@@ -33,7 +33,7 @@ function Homepage() {
                     item3="willekeurig recept"
                 />
             </article>
-        </main>
+        </>
     )
 }
 
