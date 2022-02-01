@@ -1,6 +1,14 @@
 body {
     background-color: hsl(47, 88%, 87%);
     font-family: "Source Serif Pro", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, p, ul, li {
+    color: #417B8D;
 }
 
 nav {
@@ -18,10 +26,9 @@ nav, ul {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: hsl(47, 88%, 87%);
 }
 
-li {
+.navbar {
     padding-right: 50px;
     list-style-type: none;
 }
@@ -29,5 +36,6 @@ li {
 .mid-screen {
     position: absolute;
     top: 90px;
-    left: 20px;
+    left: 50px;
+    right: 50px;
 }

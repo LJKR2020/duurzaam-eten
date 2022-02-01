@@ -16,15 +16,15 @@ function App() {
                 <nav>
                     <img src="/" alt="logo"/>
                     <ul>
-                        <li><NavLink exact to="/">Home</NavLink></li>
-                        <li><NavLink to="/recepten">Recepten</NavLink></li>
-                        <li><NavLink to="/contact">Contact</NavLink></li>
-                        <li><NavLink to="/registreren">Registreren</NavLink></li>
-                        <li><NavLink to="/inloggen">Inloggen</NavLink></li>
-                        {/*<li><NavLink to="/profiel">Persoonlijke pagina</NavLink></li>*/}
+                        <li className="navbar"><NavLink exact to="/">Home</NavLink></li>
+                        <li className="navbar"><NavLink to="/recepten">Recepten</NavLink></li>
+                        <li className="navbar"><NavLink to="/contact">Contact</NavLink></li>
+                        <li className="navbar"><NavLink to="/registreren">Registreren</NavLink></li>
+                        <li className="navbar"><NavLink to="/inloggen">Inloggen</NavLink></li>
+                        {/*<li className="navbar"><NavLink to="/profiel">Persoonlijke pagina</NavLink></li>*/}
                     </ul>
                 </nav>
-                <section className="mid-screen">
+                <div className="mid-screen">
                     <Switch>
                         <Route exact path="/">
                             <Homepage />
@@ -45,7 +45,7 @@ function App() {
                             <Contact />
                         </Route>
                     </Switch>
-                </section>
+                </div>
 
             </div>
         </Router>
