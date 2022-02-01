@@ -2,9 +2,18 @@ import React from 'react';
 
 function SignIn() {
     return (
-        <p>
-            Ik ben de inlogpagina
-        </p>
+        <>
+            <div>
+                <form action="/">
+                    <h1>Inloggen</h1>
+                    <label htmlFor="username"> </label>
+                    <input type="text" id="username" placeholder="Gebruikersnaam"/>
+                    <label htmlFor="password"> </label>
+                    <input type="text" id="password" placeholder="Wachtwoord"/>
+                    <button type="submit">Inloggen</button>
+                </form>
+            </div>
+        </>
     )
 }
 
