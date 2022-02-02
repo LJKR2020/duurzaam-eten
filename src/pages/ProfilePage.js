@@ -1,6 +1,6 @@
 import React from 'react';
-import Tile from './../components/Tile'
-import karolina from './../assets/pexels-karolina-grabowska-6659559.jpg'
+import ImageTile from './../components/Tile'
+import cooking from './../assets/cooking.jpg'
 import "./basic-form.css"
 
 function Profile() {
@@ -23,15 +23,15 @@ function Profile() {
                 </form>
             </section>
             <aside>
+                <ImageTile
+                ImageUrl={cooking}
+                />
                 <div className="basic-form">
                     <h1>Account verwijderen</h1>
                     <button type="button">Uitschrijven</button>
                     <button type="button">Ja, schrijf mij uit</button>
                     <button>Nee, liever niet</button>
                 </div>
-                <Tile
-                    image={karolina}
-                />
             </aside>
 
         </>
