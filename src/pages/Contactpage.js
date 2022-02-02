@@ -20,11 +20,11 @@ function Contact() {
             </article>
             <article>
                 <ImageTile
-                    imageUrl={pasta}
+                    imageUrl={pokebowl}
                 />
                 {/*laatste tegel google maps van duurzame locatie: toekomst feature*/}
                 <ImageTile
-                    imageUrl={pokebowl}
+                    imageUrl={pasta}
                 />
             </article>
         </>
