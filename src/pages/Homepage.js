@@ -12,7 +12,7 @@ function Homepage() {
                 <Tile title="Duurzaam eten">
                     <p>Je kunt verspakketten halen uit de winkel. De porties aanpassen, waardoor je alles op maakt.</p>
                     <p className="center">OF</p>
-                    <p>Door recepten op te zoeken met de ingredienten die je over hebt!"</p>
+                    <p>Door recepten op te zoeken met de ingrediënten die je over hebt!"</p>
                 </Tile>
                 <ImageTile
                     imageUrl={spaghetti}
