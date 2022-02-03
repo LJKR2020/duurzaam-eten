@@ -8,47 +8,56 @@ import RecipeSearch from './pages/RecipeSearchPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
+import Navigation from './components/Navigation';
+
+import AuthContext from './AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+
+import { useAuth } from './AuthContext';
 
 function App() {
-    return (
-        <Router>
-            <div>
-                <nav>
-                    <img src="/" alt="logo"/>
-                    <ul>
-                        <li className="navbar"><NavLink exact to="/">Home</NavLink></li>
-                        <li className="navbar"><NavLink to="/recepten">Recepten</NavLink></li>
-                        <li className="navbar"><NavLink to="/contact">Contact</NavLink></li>
-                        <li className="navbar"><NavLink to="/registreren">Registreren</NavLink></li>
-                        <li className="navbar"><NavLink to="/inloggen">Inloggen</NavLink></li>
-                        {/*<li className="navbar"><NavLink to="/profiel">Persoonlijke pagina</NavLink></li>*/}
-                    </ul>
-                </nav>
-                <div className="mid-screen">
-                    <Switch>
-                        <Route exact path="/">
-                            <Homepage />
-                        </Route>
-                        <Route path="/inloggen">
-                            <SignIn />
-                        </Route>
-                        <Route path="/registreren">
-                            <SignUp />
-                        </Route>
-                        <Route path="/recepten">
-                            <RecipeSearch />
-                        </Route>
-                        <Route path="/profiel">
-                            <Profile />
-                        </Route>
-                        <Route path="/contact">
-                            <Contact />
-                        </Route>
-                    </Switch>
-                </div>
+    const { isAuth } = useAuth();
 
-            </div>
-        </Router>
+    return (
+        <AuthContext>
+            <Router>
+                <div>
+                    <Navigation />
+
+                    <div className="mid-screen">
+                        <Switch>
+
+                            <Route exact path="/">
+                                <Homepage />
+                            </Route>
+
+                            { !isAuth && <Route path="/inloggen">
+                                <SignIn />
+                            </Route>}
+
+                            { !isAuth && <Route path="/registreren">
+                                <SignUp />
+                            </Route>}
+
+                            <PrivateRoute path="/recepten">
+                                <RecipeSearch />
+                            </PrivateRoute>
+
+                            <PrivateRoute path="/profiel">
+                                <Profile />
+                            </PrivateRoute>
+
+                            <Route path="/contact">
+                                <Contact />
+                            </Route>
+
+                        </Switch>
+                    </div>
+
+                </div>
+            </Router>
+        </AuthContext>
+
     );
 }
 
