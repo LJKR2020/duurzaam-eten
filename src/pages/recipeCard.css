@@ -1,0 +1,25 @@
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.recipe-tile {
+    background-color: #DAAD86;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    margin: 20px;
+}
+
+.image {
+    background-color: #417B8D;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
