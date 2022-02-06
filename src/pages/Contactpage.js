@@ -11,8 +11,8 @@ function Contact() {
         <>
             <article>
                 <Tile title="Contact">
-                    <p>Deze webapplicatie is gemaakt door Loredana Kraamer-Rietveld</p>
-                    <p>Heb je opmerkingen, vragen of feedback? Stuur dan een e-mail naar: feedback@outlook.com </p>
+                    <p>This application is made by Loredana Kraamer-Rietveld</p>
+                    <p>Do you have questions or feedback? Send an e-mail to l.j_rietveld@live.nl</p>
                 </Tile>
                 <ImageTile
                     imageUrl={salade}

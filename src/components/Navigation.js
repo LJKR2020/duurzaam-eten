@@ -9,12 +9,12 @@ function Navigation() {
         <img src="/" alt="logo"/>
         <ul>
             <li className="navbar"><NavLink exact to="/">Home</NavLink></li>
-            { isAuth && <li className="navbar"><NavLink to="/recepten">Recepten</NavLink></li> }
+            { isAuth && <li className="navbar"><NavLink to="/recepten">Recipes</NavLink></li> }
             <li className="navbar"><NavLink to="/contact">Contact</NavLink></li>
-            { !isAuth && <li className="navbar"><NavLink to="/registreren">Registreren</NavLink></li> }
-            { !isAuth && <li className="navbar"><NavLink to="/inloggen">Inloggen</NavLink></li> }
-            { isAuth && <li className="navbar"><NavLink to="/profiel">Persoonlijke pagina</NavLink></li> }
-            { isAuth && <li className="navbar">Uitloggen</li>}
+            { !isAuth && <li className="navbar"><NavLink to="/registreren">Sign-Up</NavLink></li> }
+            { !isAuth && <li className="navbar"><NavLink to="/inloggen">Sign-In</NavLink></li> }
+            {/*{ isAuth && <li className="navbar"><NavLink to="/profiel">Profile</NavLink></li> }*/}
+            {/*{ isAuth && <li className="navbar">Log-Out</li>}*/}
         </ul>
     </nav>
 }

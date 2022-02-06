@@ -58,17 +58,16 @@ function SignIn() {
 
     return (
         <>
-            {/*als error dan zeggen gegevens ongeldig*/}
             <div className="basic-form">
-                <h1>Inloggen</h1>
+                <h1>Sign-In</h1>
                 <form action="/" onSubmit={onSubmit}>
                     <label htmlFor="username">
-                        <input type="text" id="username" placeholder="Gebruikersnaam"/>
+                        <input type="text" id="username" placeholder="Username"/>
                     </label>
                     <label htmlFor="password">
-                        <input type="password" id="password" minLength="6" placeholder="Wachtwoord"/>
+                        <input type="password" id="password" minLength="6" placeholder="Password"/>
                     </label>
-                    <button type="submit">Inloggen</button>
+                    <button type="submit">Sign-In</button>
                 </form>
             </div>
         </>

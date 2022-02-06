@@ -56,22 +56,22 @@ function SignUp() {
     return (
         <>
             <div className="basic-form">
-                <h1>Registreren</h1>
+                <h1>Sign-up</h1>
                 <form onSubmit={onSubmit}>
                     <label htmlFor="username">
-                        <input type="text" id="username" placeholder="Gebruikersnaam"/>
+                        <input type="text" id="username" placeholder="Username"/>
                     </label>
                     <label htmlFor="email">
-                        <input type="email" id="email" placeholder="E-mailadres"/>
+                        <input type="email" id="email" placeholder="E-mail address"/>
                     </label>
                     <label htmlFor="password">
-                        <input type="password" id="password" placeholder="Wachtwoord"/>
+                        <input type="password" id="password" placeholder="Password"/>
                     </label>
                     <label htmlFor="password-check">
-                        <input type="password" id="password-check" placeholder="Herhaal het wachtwoord"/>
+                        <input type="password" id="password-check" placeholder="Repeat password"/>
                     </label>
-                    { invalidPasswords && <p className="error">Wachtwoorden zijn niet gelijk</p>}
-                    <button type="submit">Registreren</button>
+                    { invalidPasswords && <p className="error">Passwords aren't the same</p>}
+                    <button type="submit">Sign-up</button>
                 </form>
             </div>
         </>

@@ -9,10 +9,10 @@ function Homepage() {
     return (
         <>
             <article>
-                <Tile title="Duurzaam eten">
-                    <p>Je kunt verspakketten halen uit de winkel. De porties aanpassen, waardoor je alles op maakt.</p>
-                    <p className="center">OF</p>
-                    <p>Door recepten op te zoeken met de ingrediënten die je over hebt!"</p>
+                <Tile title="Sustainable with food">
+                    <p>You can get fresh packages from the store. The packages are adjust to portions, so you won't have unused ingredients left.</p>
+                    <p className="center">OR</p>
+                    <p>By looking up recipes with the ingredients you have left!</p>
                 </Tile>
                 <ImageTile
                     imageUrl={spaghetti}
@@ -23,12 +23,12 @@ function Homepage() {
                 <ImageTile
                     imageUrl={fridge}
                 />
-                <Tile title="Recepten zoeken">
-                    <p>op:</p>
+                <Tile title="Search for recipes">
+                    <p>on:</p>
                     <ul className="left">
-                        <li>ingrediënten (die je nog hebt liggen);</li>
-                        <li>naam;</li>
-                        <li>willekeurig recept.</li>
+                        <li>ingredients;</li>
+                        <li>name;</li>
+                        <li>random recipe.</li>
                     </ul>
                 </Tile>
             </article>
