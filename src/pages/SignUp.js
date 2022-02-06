@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Redirect } from 'react-router';
 import axios from 'axios';
 import "./basic-form.css";
@@ -23,7 +23,7 @@ function SignUp() {
             .then((res) => {
                 setAccount(res.data.message);
             })
-            .catch(err => {
+            .catch(() => {
                 setHasError(true);
             })
             .finally(() => {
@@ -38,9 +38,6 @@ function SignUp() {
         const email = e.target[1].value;
         const password = e.target[2].value;
         const passwordCheck = e.target[3].value;
-
-        // Validation function eventueel
-        // If valid dan doSubmit else set error
 
         if (password !== passwordCheck) {
             setInvalidPasswords(true);
