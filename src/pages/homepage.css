@@ -10,7 +10,7 @@ article {
     flex-grow: 1;
     flex-shrink: 1;
     overflow: hidden;
-    background-color: #DAAD86;
+    background-color: hsla(203, 100%, 81%, 1);
     background-size: cover;
     background-position: center center;
     border-radius: 10px;

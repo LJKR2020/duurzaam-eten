@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: hsl(47, 88%, 87%);
+    background-color: hsla(203, 100%, 96%, 1);
     font-family: "Source Serif Pro", sans-serif;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ body {
 }
 
 h1, p, ul, li {
-    color: #417B8D;
+    color: hsla(203, 53%, 11%, 1);
 }
 
 nav {
@@ -23,12 +23,12 @@ nav {
     left: 20px;
     width: calc(100% - 40px);
     height: 50px;
-    background-color: hsl(34, 38%, 58%);
+    background-color: hsla(203, 100%, 27%, 1);
 }
 
 a {
     text-decoration: none;
-    color: hsl(47, 88%, 87%);
+    color: hsla(203, 100%, 96%, 1);
 }
 
 a:hover {
