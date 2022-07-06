@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { Redirect } from 'react-router';
 import axios from 'axios';
 import "./basic-form.css";
+import {Redirect} from "react-router-dom";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 

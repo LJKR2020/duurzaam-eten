@@ -77,7 +77,7 @@ function RecipeSearch() {
                 {Object.keys(recipes).length > 0 && recipes.results.map((recipes) => {
                         return (
                             <article key={recipes.id} className="recipe-tile">
-                                <img className="image" src={recipes.image} alt="recipe picture"/>
+                                <img className="image" src={recipes.image} alt="recipe"/>
                                 <h3>{recipes.title}</h3>
                                 <p>source: {recipes.sourceName}</p>
                             </article>

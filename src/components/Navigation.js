@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink} from "react-router-dom";
-import { useAuth } from '../AuthContext';
+import AuthContext from '../AuthContext';
 import './navigation.css'
 
 function Navigation() {
-    let { isAuth } = useAuth();
+    const { isAuth } = useContext(AuthContext);
 
     return <nav>
         <img src="/" alt="logo"/>

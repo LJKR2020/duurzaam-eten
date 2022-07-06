@@ -1,30 +1,45 @@
 import { useState, createContext, useContext, useEffect } from 'react';
+import { useHistory } from "react-router";
 
-const AuthContext = createContext(false);
+export const AuthContext = createContext({});
 
-export const useAuth = () => useContext(AuthContext);
-
-const AuthProvider = ({ children }) => {
-    const [isAuth, setIsAuth] = useState(false);
-
-    useEffect(() => {
-        const user = sessionStorage.getItem('user');
-        setIsAuth(!!user);
+function AuthContextProvider({ children }) {
+    const [Auth, toggleAuth] = useState({
+        isAuth: false,
+        user: null,
     });
+    const history = useHistory();
+
+    // useEffect(() => {
+    //     const user = sessionStorage.getItem('user');
+    //     toggleAuth(!!user);
+    // }, []);
 
     const setLogin = () => {
-        setIsAuth(true);
+        toggleAuth({
+            isAuth: true,
+            user: null,
+        });
+        history.push('/recepten')
     };
 
     const setLogout = () => {
-        setIsAuth(false);
-        const user = null;
-        sessionStorage.setItem('user', null);
+        toggleAuth({
+            isAuth: true,
+            user: null,
+        });
+        history.push('/')
     };
 
-    return <AuthContext.Provider value={{ isAuth, setLogin, setLogout }}>
-        { children }
-    </AuthContext.Provider>
-}
+    const contextData = {
+        isAuth: auth.isAuth,
+        setLogin: login,
+        setLogout: logout,
+    }
 
-export default AuthProvider;
+    return
+        <AuthContext.Provider value = {contextData}>
+            { children }
+        </AuthContext.Provider>
+
+export default AuthContextProvider;
