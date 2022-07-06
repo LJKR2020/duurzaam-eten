@@ -1,5 +1,4 @@
 import React from 'react';
-import './homepage.css'
 import Tile from './../components/Tile'
 import ImageTile from './../components/ImageTile'
 import pasta from './../assets/pasta.jpg'

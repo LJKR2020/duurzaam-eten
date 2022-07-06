@@ -1,5 +1,5 @@
 .basic-form {
-    background-color: #DAAD86;
+    background-color: hsla(203, 100%, 81%, 1);
     border-radius: 10px;
     flex-basis: 600px;
     flex-shrink: 1;
@@ -30,12 +30,13 @@ input {
 }
 
 button {
-    background-color: antiquewhite;
+    background-color: hsla(203, 100%, 27%, 1);
     border-radius: 25px;
     margin-bottom: 50px;
+    color: hsla(203, 100%, 96%, 1);
 }
 
 .buttons {
-    margin: 0px 20px 40px 20px;
+    margin: 20px 40px 20px;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import './homepage.css';
 import Tile from './../components/Tile'
 import ImageTile from './../components/ImageTile'
 import spaghetti from './../assets/spaghetti.jpg'
@@ -16,12 +15,14 @@ function Homepage() {
                 </Tile>
                 <ImageTile
                     imageUrl={spaghetti}
+                    imageAlt="Kaas raspen boven de kom met pasta"
                 />
             </article>
 
             <article>
                 <ImageTile
                     imageUrl={fridge}
+                    imageAlt="Gevulde koelkast"
                 />
                 <Tile title="Search for recipes">
                     <p>on:</p>
