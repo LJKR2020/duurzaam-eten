@@ -1,9 +1,6 @@
-import React, {useContext, useState} from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "./basic-form.css";
-import AuthContextProvider from "../AuthContext";
-import {AuthContext, useAuth} from '../AuthContext';
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
@@ -12,13 +9,13 @@ function Login() {
     // const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
 
-    const { setLogin } = useContext(AuthContext);
+    // const { setLogin } = useContext(AuthContext);
 
-    async function LoginRequest() {
+    async function loginRequest() {
         try {
             const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
-                        // username: username,
-                        // password: password,
+                        // username: data.username,
+                        // password: data.password,
                     })
             console.log(response);
         } catch (e) {
@@ -27,25 +24,23 @@ function Login() {
         }
     }
 
-    LoginRequest();
+    const isValid = (username, password) => {
+        if (password.length < 6) {
+        //    error-message
+        }
+    }
 
-    // const isValid = (username, password) => {
-    //     if (password.length < 6) {
-    //         // setError()
-    //     }
-    // }
+    const onSubmit = (e) => {
+        e.preventDefault();
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //
-    //     const username = e.target[0].value;
-    //     const password = e.target[1].value;
-    //
-    //     // isValid({username, password});
-    //
-    //     doSubmit({username, password});
-    // };
-    //
+        const username = e.target[0].value;
+        const password = e.target[1].value;
+
+        isValid({username, password});
+
+        loginRequest({username, password});
+    };
+
     // if (account) {
     //     return <Redirect to="/recepten" />;
     // }
@@ -61,7 +56,7 @@ function Login() {
                     <label htmlFor="password">
                         <input type="password" id="password" minLength="6" placeholder="Password"/>
                     </label>
-                    <button type="button" onClick={setLogin}>Log me in!</button>
+                    <button type="button" onClick={onSubmit}>Log me in!</button>
                 </form>
             </div>
         </>

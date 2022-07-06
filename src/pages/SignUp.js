@@ -1,35 +1,29 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import "./basic-form.css";
-import {Redirect} from "react-router-dom";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
 function SignUp() {
-    const [account, setAccount] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    // const [account, setAccount] = useState(null);
+    // const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [invalidPasswords, setInvalidPasswords] = useState(false);
 
-    const doSubmit = async(data) => {
-        setIsLoading(true);
-
-        await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
-            "username": data.username,
-            "email": data.email,
-            "password" : data.password,
-            "role": ["user"]
-        })
-            .then((res) => {
-                setAccount(res.data.message);
+    async function signUp() {
+        try {
+            const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
+                // "username": data.username,
+                // "email": data.email,
+                // "password" : data.password,
+                // "role": ["user"]
             })
-            .catch(() => {
-                setHasError(true);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    };
+            console.log(response)
+        } catch (e) {
+            console.error(e => {setHasError(true)})
+            console.log(hasError)
+        }
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -42,13 +36,13 @@ function SignUp() {
         if (password !== passwordCheck) {
             setInvalidPasswords(true);
         } else {
-            doSubmit({username, email, password});
+            signUp({username, email, password});
         }
     };
 
-    if (account) {
-        return <Redirect to="/inloggen" />;
-    }
+    // if (account) {
+    //     return <Redirect to="/inloggen" />;
+    // }
 
     return (
         <>
