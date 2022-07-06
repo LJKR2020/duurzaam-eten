@@ -8,14 +8,14 @@ import RecipeSearch from './pages/RecipeSearchPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Navigation from './components/Navigation';
-import { AuthContext } from './AuthContext';
+import AuthContextProvider from './AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-    const { isAuth } = useContext(AuthContext);
+    const { isAuth } = useContext(AuthContextProvider);
 
     return (
-        <AuthContext>
+        <AuthContextProvider>
             <Router>
                 <div>
                     <Navigation />
@@ -52,7 +52,7 @@ function App() {
 
                 </div>
             </Router>
-        </AuthContext>
+        </AuthContextProvider>
 
     );
 }
