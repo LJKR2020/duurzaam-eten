@@ -8,7 +8,7 @@ import RecipeSearch from './pages/RecipeSearchPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Navigation from './components/Navigation';
-import AuthContext from './AuthContext';
+import { AuthContext } from './AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {

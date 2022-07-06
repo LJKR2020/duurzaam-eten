@@ -10,11 +10,6 @@ function AuthContextProvider({ children }) {
     });
     const history = useHistory();
 
-    // useEffect(() => {
-    //     const user = sessionStorage.getItem('user');
-    //     toggleAuth(!!user);
-    // }, []);
-
     const setLogin = () => {
         toggleAuth({
             isAuth: true,
