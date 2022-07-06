@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, useEffect } from 'react';
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 export const AuthContext = createContext({});
 
@@ -27,14 +27,15 @@ function AuthContextProvider({ children }) {
     };
 
     const contextData = {
-        isAuth: auth.isAuth,
-        setLogin: login,
-        setLogout: logout,
+        isAuth: Auth,
+        login: setLogin,
+        logout: setLogout,
     }
 
     return
-        <AuthContext.Provider value = {contextData}>
-            { children }
-        </AuthContext.Provider>
+    <AuthContext.Provider value={contextData}>
+        {children}
+    </AuthContext.Provider>
+}
 
 export default AuthContextProvider;
