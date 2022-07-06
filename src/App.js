@@ -12,7 +12,7 @@ import AuthContextProvider from './AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-    const { isAuth } = useContext(AuthContextProvider);
+    const isAuth = useContext(AuthContextProvider);
 
     return (
         <AuthContextProvider>

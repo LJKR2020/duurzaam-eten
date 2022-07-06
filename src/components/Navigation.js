@@ -4,7 +4,7 @@ import AuthContext from '../AuthContext';
 import './navigation.css'
 
 function Navigation() {
-    const { isAuth } = useContext(AuthContext);
+    const isAuth = useContext(AuthContext);
 
     return <nav>
         <img src="/" alt="logo"/>
