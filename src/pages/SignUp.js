@@ -1,29 +1,33 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import "./basic-form.css";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
 function SignUp() {
-    // const [account, setAccount] = useState(null);
-    // const [isLoading, setIsLoading] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const [username, setUsername] = useState('');
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
     const [invalidPasswords, setInvalidPasswords] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
+    // const [hasError, setHasError] = useState(false);
 
-    async function signUp() {
-        try {
-            const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
-                // "username": data.username,
-                // "email": data.email,
-                // "password" : data.password,
-                // "role": ["user"]
-            })
-            console.log(response)
-        } catch (e) {
-            console.error(e => {setHasError(true)})
-            console.log(hasError)
+    useEffect(() => {
+        async function signUp() {
+            try {
+                const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
+                    'username': username,
+                    'email': mail,
+                    'password' : password,
+                    // "role": ["user"]
+                })
+                console.log(response)
+            } catch (e) {
+                console.error(e);
+            }
         }
-    }
+        signUp();
+    }, [mail, password, username])
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -36,13 +40,9 @@ function SignUp() {
         if (password !== passwordCheck) {
             setInvalidPasswords(true);
         } else {
-            signUp({username, email, password});
+            return setUsername(username) & setMail(email) & setPassword(password)
         }
     };
-
-    // if (account) {
-    //     return <Redirect to="/inloggen" />;
-    // }
 
     return (
         <>
