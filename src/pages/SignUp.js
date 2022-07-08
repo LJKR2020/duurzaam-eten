@@ -1,35 +1,37 @@
-import React, {useState} from 'react';
-import { Redirect } from 'react-router';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import "./basic-form.css";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
 function SignUp() {
-    const [account, setAccount] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const [username, setUsername] = useState('');
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
     const [invalidPasswords, setInvalidPasswords] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
+    // const [hasError, setHasError] = useState(false);
 
-    const doSubmit = async(data) => {
-        setIsLoading(true);
+    useEffect(() => {
+        async function signUp() {
 
-        await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
-            "username": data.username,
-            "email": data.email,
-            "password" : data.password,
-            "role": ["user"]
-        })
-            .then((res) => {
-                setAccount(res.data.message);
-            })
-            .catch(() => {
-                setHasError(true);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    };
+            // als de waarde van username, mail en username een lege string hebben, dan cancel je de quest.
+            try {
+                const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
+                    'username': username,
+                    'email': mail,
+                    'password' : password,
+                    // "role": ["user"]
+                })
+                console.log(response)
+            } catch (e) {
+                //errormessage toevoegen
+                //isloading toevoegen
+                console.error(e);
+            }
+        }
+        signUp(); // promise toevoegen
+    }, [username, mail, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -42,13 +44,9 @@ function SignUp() {
         if (password !== passwordCheck) {
             setInvalidPasswords(true);
         } else {
-            doSubmit({username, email, password});
+            return setUsername(username) & setMail(email) & setPassword(password)
         }
     };
-
-    if (account) {
-        return <Redirect to="/inloggen" />;
-    }
 
     return (
         <>

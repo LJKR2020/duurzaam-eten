@@ -1,45 +1,34 @@
-import React, { useState} from 'react';
-import { Redirect } from 'react-router';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "./basic-form.css";
 
-import { useAuth } from '../AuthContext';
-
 const { REACT_APP_AUTH_API_URL } = process.env;
 
-function SignIn() {
-    const [account, setAccount] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+function Login() {
+    // const [account, setAccount] = useState(null);
+    // const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
 
-    const { setLogin } = useAuth();
+    // const { setLogin } = useContext(AuthContext);
 
-    const doSubmit = async(data) => {
-        setIsLoading(true);
+    async function loginRequest() {
+        try {
+            const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
+                        // username: data.username,
+                        // password: data.password,
+                    })
+            console.log(response);
+        } catch (e) {
+            console.error(e => {setHasError(true)})
+            console.log(hasError);
+        }
+    }
 
-        await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
-            "username": data.username,
-            "password" : data.password,
-        })
-            .then((res) => {
-                setAccount(res.data);
-                setLogin(true);
-                sessionStorage.setItem('user', JSON.stringify(res.data));
-            })
-            .catch(err => {
-                setHasError(true);
-            })
-            .finally(() => {
-                setIsLoading(false);
-
-            });
-    };
-
-    // const isValid = (username, password) => {
-    //     if (password.length < 6) {
-    //         // setError()
-    //     }
-    // }
+    const isValid = (username, password) => {
+        if (password.length < 6) {
+        //    error-message
+        }
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -47,31 +36,31 @@ function SignIn() {
         const username = e.target[0].value;
         const password = e.target[1].value;
 
-        // isValid({username, password});
+        isValid({username, password});
 
-        doSubmit({username, password});
+        loginRequest({username, password});
     };
 
-    if (account) {
-        return <Redirect to="/recepten" />;
-    }
+    // if (account) {
+    //     return <Redirect to="/recepten" />;
+    // }
 
     return (
         <>
             <div className="basic-form">
-                <h1>Sign-In</h1>
-                <form action="/" onSubmit={onSubmit}>
+                <h1>Login Page</h1>
+                <form action="/">
                     <label htmlFor="username">
                         <input type="text" id="username" placeholder="Username"/>
                     </label>
                     <label htmlFor="password">
                         <input type="password" id="password" minLength="6" placeholder="Password"/>
                     </label>
-                    <button type="submit">Sign-In</button>
+                    <button type="button" onClick={onSubmit}>Log me in!</button>
                 </form>
             </div>
         </>
     )
 }
 
-export default SignIn;
+export default Login;

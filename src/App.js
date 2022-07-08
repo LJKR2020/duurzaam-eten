@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useContext} from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Homepage from './pages/Homepage';
 import Contact from './pages/Contactpage';
@@ -7,19 +7,15 @@ import Profile from './pages/ProfilePage';
 import RecipeSearch from './pages/RecipeSearchPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-
 import Navigation from './components/Navigation';
-
-import AuthContext from './AuthContext';
+import AuthContextProvider from './AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 
-import { useAuth } from './AuthContext';
-
 function App() {
-    const { isAuth } = useAuth();
+    const isAuth = useContext(AuthContextProvider);
 
     return (
-        <AuthContext>
+        <AuthContextProvider>
             <Router>
                 <div>
                     <Navigation />
@@ -56,7 +52,7 @@ function App() {
 
                 </div>
             </Router>
-        </AuthContext>
+        </AuthContextProvider>
 
     );
 }
