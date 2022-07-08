@@ -14,6 +14,8 @@ function SignUp() {
 
     useEffect(() => {
         async function signUp() {
+
+            // als de waarde van username, mail en username een lege string hebben, dan cancel je de quest.
             try {
                 const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
                     'username': username,
@@ -23,11 +25,13 @@ function SignUp() {
                 })
                 console.log(response)
             } catch (e) {
+                //errormessage toevoegen
+                //isloading toevoegen
                 console.error(e);
             }
         }
-        signUp();
-    }, [mail, password, username])
+        signUp(); // promise toevoegen
+    }, [username, mail, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
