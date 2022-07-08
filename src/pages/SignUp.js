@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import "./basic-form.css";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
 function SignUp() {
+    const didMount = useRef(false);
     const [username, setUsername] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,14 +15,11 @@ function SignUp() {
 
     useEffect(() => {
         async function signUp() {
-
-            // als de waarde van username, mail en username een lege string hebben, dan cancel je de quest.
             try {
                 const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
                     'username': username,
                     'email': mail,
                     'password' : password,
-                    // "role": ["user"]
                 })
                 console.log(response)
             } catch (e) {
@@ -30,8 +28,14 @@ function SignUp() {
                 console.error(e);
             }
         }
-        signUp(); // promise toevoegen
-    }, [username, mail, password])
+
+        if (didMount.current) {
+            signUp();
+            // promise toevoegen
+        } else {
+            didMount.current = true;
+        }
+        }, [username, mail, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
