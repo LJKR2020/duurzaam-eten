@@ -6,11 +6,11 @@ const { REACT_APP_AUTH_API_URL } = process.env;
 
 function SignUp() {
     const didMount = useRef(false);
+
     const [username, setUsername] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [invalidPasswords, setInvalidPasswords] = useState(false);
-    // const [isLoading, setIsLoading] = useState(false);
     const [usernameError, setUsernameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
 
@@ -38,7 +38,7 @@ function SignUp() {
 
         if (didMount.current) {
             signUp();
-            // promise toevoegen
+            // promise verwerken + redirect
         } else {
             didMount.current = true;
         }
@@ -70,10 +70,12 @@ function SignUp() {
                     </label>
                     <label htmlFor='email'>
                         <input type='email' id='email' placeholder='E-mail address' />
+                        {/* email bevat een @*/}
                         { emailError && <p className='errormessage'>This email address is already in use.</p> }
                     </label>
                     <label htmlFor='password'>
                         <input type='password' id='password' placeholder='Password'/>
+                        {/* password langer dan 6 tekens*/}
                     </label>
                     <label htmlFor='password-check'>
                         <input type='password' id='password-check' placeholder='Repeat password'/>
