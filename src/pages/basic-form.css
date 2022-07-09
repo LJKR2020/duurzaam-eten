@@ -40,3 +40,8 @@ button {
     margin: 20px 40px;
 }
 
+.errormessage {
+    color: hsla(360, 100%, 37%, 0.95);
+    font-size: 13px;
+}
+
