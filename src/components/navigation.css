@@ -29,3 +29,8 @@ nav, ul {
     padding-right: 50px;
     list-style-type: none;
 }
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
