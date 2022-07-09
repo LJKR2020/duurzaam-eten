@@ -9,9 +9,9 @@ function Contact() {
     return (
         <>
             <article>
-                <Tile title="Contact">
-                    <p>This application is made by Loredana Kraamer-Rietveld</p>
-                    <p>Do you have questions or feedback? Send an e-mail to l.j_rietveld@live.nl</p>
+                <Tile title='Contact'>
+                    <p>This application is made by Loredana Rietveld</p>
+                    <p>Enjoy using this application</p>
                 </Tile>
                 <ImageTile
                     imageUrl={salade}
@@ -21,7 +21,6 @@ function Contact() {
                 <ImageTile
                     imageUrl={pokebowl}
                 />
-                {/*laatste tegel google maps van duurzame locatie: toekomst feature*/}
                 <ImageTile
                     imageUrl={pasta}
                 />

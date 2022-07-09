@@ -44,16 +44,16 @@ function Login() {
 
     return (
         <>
-            <div className="basic-form">
+            <div className='basic-form'>
                 <h1>Login Page</h1>
-                <form action="/">
-                    <label htmlFor="username">
-                        <input type="text" id="username" placeholder="Username"/>
+                <form action='/'>
+                    <label htmlFor='username'>
+                        <input type='text' id='username' placeholder='Username'/>
                     </label>
-                    <label htmlFor="password">
-                        <input type="password" id="password" minLength="6" placeholder="Password"/>
+                    <label htmlFor='password'>
+                        <input type='password' id='password'minLength='6' placeholder='Password'/>
                     </label>
-                    <button type="button" onClick={onSubmit}>Log me in!</button>
+                    <button type='button' onClick={onSubmit}>Log me in!</button>
                 </form>
             </div>
         </>

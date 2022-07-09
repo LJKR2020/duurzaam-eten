@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import "./basic-form.css";
-import "./recipeCard.css";
+import './basic-form.css';
+import './recipeCard.css';
 
 function RecipeSearch() {
-    const apikey = "?apiKey=9fedbc8ee0d84440a2468f6d4961fe6e"
-    const url = `https://api.spoonacular.com/recipes/complexSearch${apikey}`
-    const [ingredient, setIngredient] = useState("");
-    const [recipeName, setRecipeName] = useState("")
+    const apikey = '?apiKey=9fedbc8ee0d84440a2468f6d4961fe6e';
+    const url = `https://api.spoonacular.com/recipes/complexSearch${apikey}`;
+    const [ingredient, setIngredient] = useState('');
+    const [recipeName, setRecipeName] = useState('');
     const [endpoint, setEndpoint] = useState(``);
     const [errorIngredient, setErrorIngredient] = useState(false);
     const [recipes, setRecipes] = useState([]);
@@ -35,7 +35,7 @@ function RecipeSearch() {
         e.preventDefault();
         let add = `&addRecipeInformation=true&number=50`
         if (Object.keys(ingredient).length > 0) {
-            add += `&includesIngredients=${ingredient.replace(" ", "")}`;
+            add += `&includesIngredients=${ingredient.replace(' ', '')}`;
         }
         if (Object.keys(recipeName).length > 0)
             add += `&query=${recipeName}`;
@@ -45,39 +45,39 @@ function RecipeSearch() {
 
     return (
         <>
-            <div className="basic-form">
+            <div className='basic-form'>
                 <h1>Recipe Generator</h1>
-                <form className="searchbars" onSubmit={onFormSubmit}>
-                    <label htmlFor="ingredient">Ingredients:</label>
+                <form className='searchbars' onSubmit={onFormSubmit}>
+                    <label htmlFor='ingredient'>Ingredients:</label>
                     <input
-                        type="text"
-                        name="ingredients"
-                        id="ingredient"
-                        placeholder="eggplant, apple, tomato,"
+                        type='text'
+                        name='ingredients'
+                        id='ingredient'
+                        placeholder='eggplant, apple, tomato,'
                         onChange={(e) => setIngredient(e.target.value)}
                     />
-                    <label htmlFor="recipe-name">Name of a recipe:</label>
+                    <label htmlFor='recipe-name'>Name of a recipe:</label>
                     <input
-                        type="text"
-                        name="recipe-names"
-                        id="recipe-name"
-                        placeholder="stew"
+                        type='text'
+                        name='recipe-names'
+                        id='recipe-name'
+                        placeholder='stew'
                         onChange={(e) => setRecipeName(e.target.value)}
                     />
                     <div>
                         {/*<button className="buttons" type="button">Random recipe</button>*/}
-                        <button className="buttons" type="submit">Search</button>
+                        <button className='buttons' type='submit'>Search</button>
                     </div>
                     {errorIngredient && <span>
                        We didn't find any results with your entry.
                     </span>}
                 </form>
             </div>
-            <div className="results">
+            <div className='results'>
                 {Object.keys(recipes).length > 0 && recipes.results.map((recipes) => {
                         return (
-                            <article key={recipes.id} className="recipe-tile">
-                                <img className="image" src={recipes.image} alt="recipe"/>
+                            <article key={recipes.id} className='recipe-tile'>
+                                <img className='image' src={recipes.image} alt='recipe'/>
                                 <h3>{recipes.title}</h3>
                                 <p>source: {recipes.sourceName}</p>
                             </article>

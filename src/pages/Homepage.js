@@ -8,25 +8,25 @@ function Homepage() {
     return (
         <>
             <article>
-                <Tile title="Sustainable with food">
+                <Tile title='Sustainable with food'>
                     <p>You can get fresh packages from the store. The packages are adjust to portions, so you won't have unused ingredients left.</p>
-                    <p className="center">OR</p>
+                    <p className='center'>OR</p>
                     <p>By looking up recipes with the ingredients you have left!</p>
                 </Tile>
                 <ImageTile
                     imageUrl={spaghetti}
-                    imageAlt="Kaas raspen boven de kom met pasta"
+                    imageAlt='Putting cheese on top of the bowl with pasta'
                 />
             </article>
 
             <article>
                 <ImageTile
                     imageUrl={fridge}
-                    imageAlt="Gevulde koelkast"
+                    imageAlt='Fridge full with food'
                 />
-                <Tile title="Search for recipes">
+                <Tile title='Search for recipes'>
                     <p>on:</p>
-                    <ul className="left">
+                    <ul className='left'>
                         <li>ingredients;</li>
                         <li>name;</li>
                         <li>random recipe.</li>

@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useContext} from 'react';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Contact from './pages/Contactpage';
 import Profile from './pages/ProfilePage';
@@ -20,30 +20,30 @@ function App() {
                 <div>
                     <Navigation />
 
-                    <div className="mid-screen">
+                    <div className='mid-screen'>
                         <Switch>
 
-                            <Route exact path="/">
+                            <Route exact path='/'>
                                 <Homepage />
                             </Route>
 
-                            { !isAuth && <Route path="/inloggen">
+                            { !isAuth && <Route path='/inloggen'>
                                 <SignIn />
                             </Route>}
 
-                            { !isAuth && <Route path="/registreren">
+                            { !isAuth && <Route path='/registreren'>
                                 <SignUp />
                             </Route>}
 
-                            <PrivateRoute path="/recepten">
+                            <PrivateRoute path='/recepten'>
                                 <RecipeSearch />
                             </PrivateRoute>
 
-                            <PrivateRoute path="/profiel">
+                            <PrivateRoute path='/profiel'>
                                 <Profile />
                             </PrivateRoute>
 
-                            <Route path="/contact">
+                            <Route path='/contact'>
                                 <Contact />
                             </Route>
 
