@@ -1,49 +1,46 @@
-import React, { useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
-import "./basic-form.css";
+import './basic-form.css';
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
 function Login() {
-    // const [account, setAccount] = useState(null);
-    // const [isLoading, setIsLoading] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const didMount = useRef(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('')
+    // const [hasError, setHasError] = useState(false);
 
-    // const { setLogin } = useContext(AuthContext);
-
-    async function loginRequest() {
-        try {
-            const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
-                        // username: data.username,
-                        // password: data.password,
-                    })
-            console.log(response);
-        } catch (e) {
-            console.error(e => {setHasError(true)})
-            console.log(hasError);
+    useEffect(() => {
+        async function loginRequest() {
+            try {
+                const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
+                    'username': username,
+                    'password': password,
+                })
+                console.log(username);
+                console.log(password);
+                console.log(response);
+            } catch (e) {
+                console.log(e);
+            }
         }
-    }
 
-    const isValid = (username, password) => {
-        if (password.length < 6) {
-        //    error-message
+        if (didMount.current) {
+            loginRequest();
+            //promise verwerken
+        } else {
+            didMount.current = true;
         }
-    }
+        }, [username, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const username = e.target[0].value;
-        const password = e.target[1].value;
+        setUsername('yvonne');
+        setPassword('yvonne1');
 
-        isValid({username, password});
-
-        loginRequest({username, password});
+        // isValid({username, password});
     };
-
-    // if (account) {
-    //     return <Redirect to="/recepten" />;
-    // }
 
     return (
         <>
