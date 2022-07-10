@@ -11,6 +11,8 @@ recipe name.
 - An IDE -> Webstorm is preferred.
 - A browser -> Google Chrome is preferred
 - This project
+- Git
+- NodeJS
 - NPM
 - JSON
 - API-key from Spoonacular
@@ -37,10 +39,34 @@ recipe name.
    2. Click op 'Code'.
    3. Copy the link.
 4. Open webstorm
-   1. Click on 'Get from VCS'.
-   2. Put the URL from the project in the input-field 'URL: '.
-   3. Click on 'Clone'.
-5. Open the terminal of Webstorm
+      1. Activate or start trial
+         1. If you start the trial of 30 days. you need to make an account.
+         2. Click on start trial
+            1. Click on 'Log In to JetBrains Account...'
+            2. Create an account with your email address
+            3. Open the email of JetBrains
+            4. Confirm your account (link is in the email)
+            5. Fill the required inputfields
+            6. Click on 'Submit'
+            7. Go back to webstorm
+            8. Click on 'Close'
+      2. Click on 'Get from VCS'.
+      3. Put the URL from the project in the input-field 'URL: '.
+      4. Click on 'Download and Install'.
+      5. Click on 'Clone'.
+5. Install NodeJS
+   1. Go to https://nodejs.org/en/.
+   2. Download NodeJS (Recommended is preferred).
+   3. Open node-vXX.XX.X-x64.msi.
+   4. Click on 'Next'.
+   5. Accept the terms if you agree.
+   6. Click on 'Next'.
+   7. Choose your destination folder.
+   8. Click on 'Next'.
+   9. Don't change anything and click on 'Next'.
+   10. Click on 'Next'
+   11. Click on 'Install'.
+6. Open the terminal of Webstorm (on the bottom of the screen)
    1. type 'npm install' in the terminal and push 'Enter'. This can take some time.
    2. Open the file RecipeSearchPage.js.
    3. Put your API-key from the api Spoonacular in the const apiKey.
@@ -50,7 +76,7 @@ recipe name.
       4. Login with your account.
       5. Go to your profile
       6. Copy your API-key
-6. Type 'NPM start' in the terminal
+7. Type 'NPM start' in the terminal
 
 ### The application will be automatically opened in the browser.
 ### To use the application you need to signup first, because there aren't any accounts yet.
