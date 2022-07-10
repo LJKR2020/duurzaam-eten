@@ -1,15 +1,15 @@
 import React from "react";
 import '../pages/basic-form.css';
 
-function InputField(props) {
+function InputField({idName, type, altText}) {
     return (
         <>
-        <label htmlFor={props.idName}>
-            <input
-                type={props.type}
-                id={props.idName}
-                placeholder={props.altText} />
-        </label>
+            <label htmlFor={idName}>
+                <input
+                    type={type}
+                    id={idName}
+                    placeholder={altText}/>
+            </label>
         </>
     )
 }
