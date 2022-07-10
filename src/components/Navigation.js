@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { NavLink} from 'react-router-dom';
 import AuthContext from '../AuthContext';
-import './navigation.css';
+import './Navigation.css';
 import logo from './../assets/Bestek.png'
 
 function Navigation() {

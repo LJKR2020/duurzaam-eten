@@ -1,5 +1,5 @@
 import React from 'react';
-import './submitButton.css';
+import './SubmitButton.css';
 
 function SubmitButton({type, txt}) {
     return <button

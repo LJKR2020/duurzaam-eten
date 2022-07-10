@@ -1,5 +1,5 @@
 import React from 'react';
-import './tile.css';
+import './Tile.css';
 
 function ImageTile( {imageUrl, imageAlt} ) {
     return <section

@@ -1,5 +1,5 @@
 import React from 'react';
-import './inputField.css';
+import './InputField.css';
 
 function InputField({idName, type, altText}) {
     return (
