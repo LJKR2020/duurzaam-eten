@@ -1,35 +1,40 @@
 import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import './basic-form.css';
-import InputField from "../components/InputField";
-import SubmitButton from "../components/SubmitButton";
+import InputField from '../components/InputField';
+import SubmitButton from '../components/SubmitButton';
+// import {useHistory} from "react-router-dom";
+import {useAuth} from '../AuthContext';
 
 const {REACT_APP_AUTH_API_URL} = process.env;
 
 function Login() {
+    // const history = useHistory();
+    const {login} = useAuth();
     const didMount = useRef(false);
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('');
     // const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
+
         async function loginRequest() {
             try {
                 const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signin`, {
                     'username': username,
                     'password': password,
                 })
-                console.log(username);
-                console.log(password);
-                console.log(response);
+                if (response.status === 200) {
+                    localStorage.setItem('token', response.data['accessToken']);
+                    login();
+                }
             } catch (e) {
-                console.log(e);
+                // console.log(e);
             }
         }
 
         if (didMount.current) {
             loginRequest();
-            //promise
         } else {
             didMount.current = true;
         }
@@ -37,10 +42,9 @@ function Login() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(e)
         setUsername(e.target[0].value);
         setPassword(e.target[1].value);
-    };
+    }
 
     return (
         <>
@@ -48,7 +52,7 @@ function Login() {
                 <h1>Login Page</h1>
                 <form onSubmit={onSubmit}>
                     <InputField
-                        type='txt'
+                        type='text'
                         idName='username'
                         altText='Username'
                     />
@@ -56,10 +60,9 @@ function Login() {
                         type='password'
                         idName='password'
                         altText='Password'
-                        minLength='6'
                     />
                     <SubmitButton
-                        type='button'
+                        type='submit'
                         txt='Log me in!'
                     />
                 </form>

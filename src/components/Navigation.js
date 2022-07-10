@@ -1,11 +1,13 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { NavLink} from 'react-router-dom';
 import AuthContext from '../AuthContext';
 import './Navigation.css';
-import logo from './../assets/Bestek.png'
+import {useAuth} from "../AuthContext";
 
 function Navigation() {
-    const isAuth = useContext(AuthContext);
+    const isAuth = useAuth();
+    const { logout } = useAuth();
+
 
     return <nav>
         <ul>
@@ -15,7 +17,7 @@ function Navigation() {
             { !isAuth && <li className='navbar'><NavLink to='/signup'>Sign-Up</NavLink></li> }
             { !isAuth && <li className='navbar'><NavLink to='/signin'>Sign-In</NavLink></li> }
             { isAuth && <li className='navbar'><NavLink to='/profile'>Profile</NavLink></li> }
-            { isAuth && <li className='navbar'>Log-Out</li>}
+            { isAuth && <li className='navbar' onClick={logout}>Log-Out</li>}
         </ul>
     </nav>
 }

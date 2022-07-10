@@ -1,28 +1,36 @@
-import { useState, createContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import {useState, createContext, useContext} from 'react';
+import {useHistory} from 'react-router-dom';
 
-export const AuthContext = createContext({});
+const AuthContext = createContext(false);
 
-function AuthContextProvider({ children }) {
+export function useAuth() {
+    return useContext(AuthContext);
+}
+
+function AuthContextProvider({children}) {
+    const history = useHistory();
+
     const [Auth, toggleAuth] = useState({
         isAuth: false,
         user: null,
     });
-    const history = useHistory();
 
     const setLogin = () => {
         toggleAuth({
             isAuth: true,
-            user: null,
+            user: true,
         });
+        console.log(Auth)
         history.push('/search-for-recipes')
     };
 
     const setLogout = () => {
+        console.log('test')
         toggleAuth({
-            isAuth: true,
-            user: null,
+            isAuth: false,
+            user: false,
         });
+        localStorage.removeItem('token')
         history.push('/')
     };
 
@@ -33,10 +41,10 @@ function AuthContextProvider({ children }) {
     }
 
     return (
-            <AuthContext.Provider value={contextData}>
-                {children}
-            </AuthContext.Provider>
-        );
+        <AuthContext.Provider value={contextData}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
-export default AuthContextProvider;
+export default AuthContextProvider
