@@ -14,7 +14,6 @@ recipe name.
 - Git
 - NodeJS
 - NPM
-- JSON
 - API-key from Spoonacular
 
 ! --- The api-key for the teacher is in the zip-folder of the project --- !
@@ -46,14 +45,15 @@ recipe name.
             2. Create an account with your email address
             3. Open the email of JetBrains
             4. Confirm your account (link is in the email)
-            5. Fill the required inputfields
+            5. Fill the required input-fields
             6. Click on 'Submit'
             7. Go back to webstorm
             8. Click on 'Close'
       2. Click on 'Get from VCS'.
       3. Put the URL from the project in the input-field 'URL: '.
-      4. Click on 'Download and Install'.
+      4. Click on 'Download and Install' (GIT).
       5. Click on 'Clone'.
+      6. Restart Webstorm so Git will be enabled.
 5. Install NodeJS
    1. Go to https://nodejs.org/en/.
    2. Download NodeJS (Recommended is preferred).
@@ -67,11 +67,13 @@ recipe name.
    10. Click on 'Next'
    11. Click on 'Install'.
    12. Restart Webstorm (You need to restart your computer in some cases).
-6. Open the terminal of Webstorm (on the bottom of the screen)
+6. Open the terminal of Webstorm (at the bottom of the screen)
    1. Type 'node -v' to check the version of NodeJS.
    2. Type 'npm install' in the terminal and push 'Enter'. This can take some time.
-   3. Open the file RecipeSearchPage.js.
-   4. Put your API-key from the api Spoonacular in the const apiKey.
+   3. Open the folder 'src'
+   4. Open the folder 'pages'
+   5. Open the file 'RecipeSearchPage.js'
+   6. Put your API-key from the api Spoonacular in the const apiKey.
       1. Go to https://spoonacular.com/food-api/console#Dashboard.
       2. Click on 'START NOW'.
       3. Make an account.
