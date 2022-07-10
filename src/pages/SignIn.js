@@ -1,8 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import './basic-form.css';
+import InputField from "../components/InputField";
+import SubmitButton from "../components/SubmitButton";
 
-const { REACT_APP_AUTH_API_URL } = process.env;
+const {REACT_APP_AUTH_API_URL} = process.env;
 
 function Login() {
     const didMount = useRef(false);
@@ -27,33 +29,39 @@ function Login() {
 
         if (didMount.current) {
             loginRequest();
-            //promise verwerken
+            //promise
         } else {
             didMount.current = true;
         }
-        }, [username, password])
+    }, [username, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        setUsername('yvonne');
-        setPassword('yvonne1');
-
-        // isValid({username, password});
+        console.log(e)
+        setUsername(e.target[0].value);
+        setPassword(e.target[1].value);
     };
 
     return (
         <>
             <div className='basic-form'>
                 <h1>Login Page</h1>
-                <form action='/'>
-                    <label htmlFor='username'>
-                        <input type='text' id='username' placeholder='Username'/>
-                    </label>
-                    <label htmlFor='password'>
-                        <input type='password' id='password'minLength='6' placeholder='Password'/>
-                    </label>
-                    <button type='button' onClick={onSubmit}>Log me in!</button>
+                <form onSubmit={onSubmit}>
+                    <InputField
+                        type='txt'
+                        idName='username'
+                        altText='Username'
+                    />
+                    <InputField
+                        type='password'
+                        idName='password'
+                        altText='Password'
+                        minLength='6'
+                    />
+                    <SubmitButton
+                        type='button'
+                        txt='Log me in!'
+                    />
                 </form>
             </div>
         </>
