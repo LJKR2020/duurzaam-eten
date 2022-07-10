@@ -57,7 +57,7 @@ recipe name.
 5. Install NodeJS
    1. Go to https://nodejs.org/en/.
    2. Download NodeJS (Recommended is preferred).
-   3. Open node-vXX.XX.X-x64.msi.
+   3. Open node-vXX.XX.X-x64.msi. (at this time version 16.16.0)
    4. Click on 'Next'.
    5. Accept the terms if you agree.
    6. Click on 'Next'.
@@ -66,10 +66,12 @@ recipe name.
    9. Don't change anything and click on 'Next'.
    10. Click on 'Next'
    11. Click on 'Install'.
+   12. Restart Webstorm (You need to restart your computer in some cases).
 6. Open the terminal of Webstorm (on the bottom of the screen)
-   1. type 'npm install' in the terminal and push 'Enter'. This can take some time.
-   2. Open the file RecipeSearchPage.js.
-   3. Put your API-key from the api Spoonacular in the const apiKey.
+   1. Type 'node -v' to check the version of NodeJS.
+   2. Type 'npm install' in the terminal and push 'Enter'. This can take some time.
+   3. Open the file RecipeSearchPage.js.
+   4. Put your API-key from the api Spoonacular in the const apiKey.
       1. Go to https://spoonacular.com/food-api/console#Dashboard.
       2. Click on 'START NOW'.
       3. Make an account.
