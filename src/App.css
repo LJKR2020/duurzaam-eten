@@ -6,13 +6,27 @@ body {
     background-color: hsla(203, 100%, 96%, 1);
 }
 
+main {
+    max-width: 1020px;
+    width: 100%;
+}
+
 h1, p, ul, li {
     color: hsla(203, 53%, 11%, 1);
 }
 
-.mid-screen {
-    position: absolute;
-    top: 90px;
-    left: 50px;
-    right: 50px;
+.padding {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    align-items: center;
+    padding-top: 90px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
 }

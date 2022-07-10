@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Navigation from './components/Navigation';
 import AuthContextProvider from './AuthContext';
 import PrivateRoute from './components/PrivateRoute';
+import logo from "./assets/Bestek.png";
 
 function App() {
     const isAuth = useContext(AuthContextProvider);
@@ -17,10 +18,13 @@ function App() {
     return (
         <AuthContextProvider>
             <Router>
-                <div>
-                    <Navigation />
+                <div className='padding'>
+                    <header className='navigationBar'>
+                        <img src={logo} alt='logo' className='logo'/>
+                        <Navigation />
+                    </header>
 
-                    <div className='mid-screen'>
+                    <main className='mid-screen'>
                         <Switch>
 
                             <Route exact path='/'>
@@ -48,8 +52,10 @@ function App() {
                             </Route>
 
                         </Switch>
-                    </div>
-
+                    </main>
+                    <footer className='voetje'>
+                        <p>Copyright of Hogeschool Novi</p>
+                    </footer>
                 </div>
             </Router>
         </AuthContextProvider>

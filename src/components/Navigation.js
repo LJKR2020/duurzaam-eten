@@ -8,7 +8,6 @@ function Navigation() {
     const isAuth = useContext(AuthContext);
 
     return <nav>
-        <img src={logo} alt='logo' className='logo'/>
         <ul>
             <li className='navbar'><NavLink exact to='/'>Home</NavLink></li>
             { isAuth && <li className='navbar'><NavLink to='/search-for-recipes'>Recipes</NavLink></li> }
