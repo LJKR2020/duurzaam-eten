@@ -27,19 +27,19 @@ function App() {
                                 <Homepage />
                             </Route>
 
-                            { !isAuth && <Route path='/inloggen'>
+                            { !isAuth && <Route path='/signin'>
                                 <SignIn />
                             </Route>}
 
-                            { !isAuth && <Route path='/registreren'>
+                            { !isAuth && <Route path='/signup'>
                                 <SignUp />
                             </Route>}
 
-                            <PrivateRoute path='/recepten'>
+                            <PrivateRoute path='/search-for-recipes'>
                                 <RecipeSearch />
                             </PrivateRoute>
 
-                            <PrivateRoute path='/profiel'>
+                            <PrivateRoute path='/profile'>
                                 <Profile />
                             </PrivateRoute>
 

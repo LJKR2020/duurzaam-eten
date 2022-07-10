@@ -11,11 +11,11 @@ function Navigation() {
         <img src={logo} alt='logo' className='logo'/>
         <ul>
             <li className='navbar'><NavLink exact to='/'>Home</NavLink></li>
-            { isAuth && <li className='navbar'><NavLink to='/recepten'>Recipes</NavLink></li> }
+            { isAuth && <li className='navbar'><NavLink to='/search-for-recipes'>Recipes</NavLink></li> }
             <li className='navbar'><NavLink to='/contact'>Contact</NavLink></li>
-            { !isAuth && <li className='navbar'><NavLink to='/registreren'>Sign-Up</NavLink></li> }
-            { !isAuth && <li className='navbar'><NavLink to='/inloggen'>Sign-In</NavLink></li> }
-            { isAuth && <li className='navbar'><NavLink to='/profiel'>Profile</NavLink></li> }
+            { !isAuth && <li className='navbar'><NavLink to='/signup'>Sign-Up</NavLink></li> }
+            { !isAuth && <li className='navbar'><NavLink to='/signin'>Sign-In</NavLink></li> }
+            { isAuth && <li className='navbar'><NavLink to='/profile'>Profile</NavLink></li> }
             { isAuth && <li className='navbar'>Log-Out</li>}
         </ul>
     </nav>
