@@ -15,7 +15,7 @@ function AuthContextProvider({ children }) {
             isAuth: true,
             user: null,
         });
-        history.push('/recepten')
+        history.push('/search-for-recipes')
     };
 
     const setLogout = () => {
