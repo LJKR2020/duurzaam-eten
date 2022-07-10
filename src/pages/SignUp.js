@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import './basic-form.css';
+import InputField from "../components/InputField";
 
 const { REACT_APP_AUTH_API_URL } = process.env;
 
@@ -17,6 +18,7 @@ function SignUp() {
     useEffect(() => {
         setUsernameError(false);
         setEmailError(false);
+        setInvalidPasswords(false);
 
         async function signUp() {
             try {
@@ -64,23 +66,35 @@ function SignUp() {
             <div className='basic-form'>
                 <h1>Sign-up</h1>
                 <form onSubmit={onSubmit}>
-                    <label htmlFor='username'>
-                        <input type='text' id='username' placeholder='Username' />
-                        { usernameError && <p className='errormessage'>This username is already in use.</p> }
-                    </label>
-                    <label htmlFor='email'>
-                        <input type='email' id='email' placeholder='E-mail address' />
-                        {/* email bevat een @*/}
-                        { emailError && <p className='errormessage'>This email address is already in use.</p> }
-                    </label>
-                    <label htmlFor='password'>
-                        <input type='password' id='password' placeholder='Password'/>
-                        {/* password langer dan 6 tekens*/}
-                    </label>
-                    <label htmlFor='password-check'>
-                        <input type='password' id='password-check' placeholder='Repeat password'/>
-                    </label>
-                    { invalidPasswords && <p className='error'>Passwords aren't the same</p> }
+                    <InputField
+                        type='text'
+                        idName='username'
+                        altText='Username'
+                    />
+                    { usernameError && <p className='errormessage'>This username already exist.</p> }
+
+                    <InputField
+                        type='email'
+                        idName='email'
+                        altText='E-mail address'
+                    />
+                    {/* email bevat een @*/}
+                    { emailError && <p className='errormessage'>This email address is already in use.</p> }
+
+                    <InputField
+                        type='password'
+                        idName='password'
+                        altText='Enter an password'
+                    />
+                    {/* password langer dan 6 tekens*/}
+
+                    <InputField
+                        type='password'
+                        idName='password-check'
+                        altText='Repeat password'
+                    />
+                    { invalidPasswords && <p className='errormessage'>Passwords aren't the same</p> }
+
                     <button type='submit'>Sign-up</button>
                 </form>
             </div>
