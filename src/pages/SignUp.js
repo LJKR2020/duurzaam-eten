@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import './basic-form.css';
 import InputField from "../components/InputField";
+import SubmitButton from "../components/SubmitButton";
 
 const {REACT_APP_AUTH_API_URL} = process.env;
 
@@ -71,7 +72,7 @@ function SignUp() {
     return (
         <>
             <div className='basic-form'>
-                <h1>Sign-up</h1>
+                <h1>Sign up</h1>
                 <form onSubmit={onSubmit}>
                     <InputField
                         type='text'
@@ -102,7 +103,10 @@ function SignUp() {
                     {passwordError && <p className='errormessage'>Use a password with a minimum of six characters.</p>}
                     {invalidPasswords && <p className='errormessage'>Passwords aren't the same.</p>}
 
-                    <button type='submit'>Sign-up</button>
+                    <SubmitButton
+                        type='submit'
+                        txt='Sign up'
+                    />
                 </form>
             </div>
         </>

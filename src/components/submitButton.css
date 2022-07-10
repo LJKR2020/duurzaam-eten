@@ -1,0 +1,9 @@
+.submitButton {
+    height: 30px;
+    width: 250px;
+    border-style: none;
+    background-color: hsla(203, 100%, 27%, 1);
+    border-radius: 25px;
+    margin-bottom: 50px;
+    color: hsla(203, 100%, 96%, 1);
+}
