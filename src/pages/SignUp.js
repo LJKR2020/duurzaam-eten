@@ -3,12 +3,13 @@ import axios from 'axios';
 import './basic-form.css';
 import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
+import {useHistory} from "react-router-dom";
 
 const {REACT_APP_AUTH_API_URL} = process.env;
 
 function SignUp() {
     const didMount = useRef(false);
-
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,7 +30,10 @@ function SignUp() {
                     'email': mail,
                     'password': password,
                 })
-                console.log(response)
+                if (response.status === 200) {
+                    history.push('/signin')
+                }
+
             } catch (e) {
                 if (e.response.data['message'] === 'This username is already in use') {
                     setUsernameError(true);
@@ -42,7 +46,7 @@ function SignUp() {
 
         if (didMount.current) {
             signUp();
-            // promise verwerken + redirect
+            // promise verwerken
         } else {
             didMount.current = true;
         }
