@@ -4,7 +4,7 @@ import './basic-form.css';
 import './recipeCard.css';
 
 function RecipeSearch() {
-    const apikey = '?apiKey=9fedbc8ee0d84440a2468f6d4961fe6e';
+    const apikey = '';
     const url = `https://api.spoonacular.com/recipes/complexSearch${apikey}`;
     const [ingredient, setIngredient] = useState('');
     const [recipeName, setRecipeName] = useState('');
