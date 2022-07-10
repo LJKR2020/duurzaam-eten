@@ -3,7 +3,7 @@ import axios from 'axios';
 import './basic-form.css';
 import InputField from "../components/InputField";
 
-const { REACT_APP_AUTH_API_URL } = process.env;
+const {REACT_APP_AUTH_API_URL} = process.env;
 
 function SignUp() {
     const didMount = useRef(false);
@@ -14,6 +14,7 @@ function SignUp() {
     const [invalidPasswords, setInvalidPasswords] = useState(false);
     const [usernameError, setUsernameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
     useEffect(() => {
         setUsernameError(false);
@@ -25,7 +26,7 @@ function SignUp() {
                 const response = await axios.post(`${REACT_APP_AUTH_API_URL}/auth/signup`, {
                     'username': username,
                     'email': mail,
-                    'password' : password,
+                    'password': password,
                 })
                 console.log(response)
             } catch (e) {
@@ -44,7 +45,7 @@ function SignUp() {
         } else {
             didMount.current = true;
         }
-        }, [username, mail, password])
+    }, [username, mail, password])
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -57,8 +58,14 @@ function SignUp() {
         if (password !== passwordCheck) {
             setInvalidPasswords(true);
         } else {
-            return setUsername(username) & setMail(email) & setPassword(password)
+            setUsername(username);
+            setMail(email);
+            setPassword(password);
         }
+
+        if (password.length > 0 && password.length < 6) {
+            setPasswordError(true);
+        } else setPasswordError(false);
     };
 
     return (
@@ -71,29 +78,29 @@ function SignUp() {
                         idName='username'
                         altText='Username'
                     />
-                    { usernameError && <p className='errormessage'>This username already exist.</p> }
+                    {usernameError && <p className='errormessage'>This username already exist.</p>}
 
                     <InputField
                         type='email'
                         idName='email'
-                        altText='E-mail address'
+                        altText='Email address'
                     />
-                    {/* email bevat een @*/}
-                    { emailError && <p className='errormessage'>This email address is already in use.</p> }
+                    {/*{emailValid && <p className='errormessage'>An email address has an @ in it.</p> }*/}
+                    {emailError && <p className='errormessage'>This email address is already in use.</p>}
 
                     <InputField
                         type='password'
                         idName='password'
-                        altText='Enter an password'
+                        altText='Enter a password'
                     />
-                    {/* password langer dan 6 tekens*/}
 
                     <InputField
                         type='password'
                         idName='password-check'
-                        altText='Repeat password'
+                        altText='Repeat the chosen password'
                     />
-                    { invalidPasswords && <p className='errormessage'>Passwords aren't the same</p> }
+                    {passwordError && <p className='errormessage'>Use a password with a minimum of six characters.</p>}
+                    {invalidPasswords && <p className='errormessage'>Passwords aren't the same.</p>}
 
                     <button type='submit'>Sign-up</button>
                 </form>
