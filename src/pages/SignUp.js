@@ -33,7 +33,6 @@ function SignUp() {
                 if (response.status === 200) {
                     history.push('/signin')
                 }
-
             } catch (e) {
                 if (e.response.data['message'] === 'This username is already in use') {
                     setUsernameError(true);
@@ -46,7 +45,6 @@ function SignUp() {
 
         if (didMount.current) {
             signUp();
-            // promise verwerken
         } else {
             didMount.current = true;
         }
@@ -71,7 +69,7 @@ function SignUp() {
         if (password.length > 0 && password.length < 6) {
             setPasswordError(true);
         } else setPasswordError(false);
-    };
+    }
 
     return (
         <>
